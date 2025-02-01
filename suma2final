@@ -1,1 +1,10 @@
+#!/bin/bash
+echo -n "Da un número: "
+read  n1
+echo -n "Da otronnúmero: "
+read  n2
+suma=$((n1 + n2))
+resta=$((n1 - n2))
+echo "El total de la suma de $n1 y $n2 es: $suma"
+echo "El total de la resta de $n1 y $n2 es: $resta"
 
