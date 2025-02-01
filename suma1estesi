@@ -1,0 +1,8 @@
+#!/bin/bash
+n1=100
+n2=50
+n3=25
+suma=$((n1 + n2))
+resta=$((suma - n3))
+echo "El total de $num1 y $num2 es $suma"
+echo "Si le quitamos al total $suma lo siguiente $num3 es $resta"
