@@ -1,0 +1,21 @@
+#!/bin/bash
+carpeta="carpeta"
+archivo="archivo.txt"
+if [ ! -d "$carpeta" ]; then
+    echo "carpeta '$carpeta' no encontrada. creando..."
+    mkdir -p "$carpeta"
+    echo "carpeta '$carpeta' creada."
+else
+    echo "carpeta '$carpeta' ya existe."
+fi
+ruta="$carpeta/$archivo"
+if [ -f "$ruta" ]; then
+    echo "archivo '$ruta' encontrado. creando backup..."
+    fecha=$(date +"%Y-%m-%d")
+    mv "$ruta" "$carpeta/${archivo%.*}_respaldo_$fecha.${archivo##*.}"
+    echo "backup guardado como '${archivo%.*}_respaldo_$fecha.${archivo##*.}'."
+else
+    echo "archivo '$ruta' no encontrado. creándolo..."
+fi
+echo "archivo creado el $(date)" > "$ruta"
+echo "archivo '$ruta' listo."
