@@ -1,0 +1,15 @@
+#!/bin/bash
+declare -a 
+urls=("https://atleticodesanluis.mx/" 
+      "https://www.clubamerica.com.mx/" 
+       "https://leaguescup.ligamx.net/")
+file=/ruta/a/tu/archivo/urls_log.txt
+while true; do
+    printf "$(date)\n" > "$file"
+    for url in "${urls[@]}"; do
+        status=$(curl -m 10 -s -I $url | head -n 1 | awk '{print $2}')
+        printf "%s,%s\n" "$url" "$status" >> "$file"
+    done
+    sleep 10
+done
+
