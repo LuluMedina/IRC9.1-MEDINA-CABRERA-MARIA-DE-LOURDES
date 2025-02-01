@@ -1,0 +1,12 @@
+#!/bin/bash
+urls=("https://atleticodesanluis.mx/" 
+      "https://www.clubamerica.com.mx/" 
+      "https://leaguescup.ligamx.net/")
+file=$(mktemp)
+printf "$(date)\n" > "$file"
+for url in "${urls[@]}"; do
+    status=$(curl -m 10 -s -I $url | head -n 1 | awk '{print $2}')
+    printf "$url,$status\n" >> "$file"
+done
+column -s, -t < "$file"
+rm -f "$file"
