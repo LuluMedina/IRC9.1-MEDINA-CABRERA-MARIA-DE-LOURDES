@@ -1,22 +1,21 @@
-MyPrimerApi.py
-
 from flask import Flask, jsonify
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 tasks = [
-  {"id":1, "nombre":"Omi", "enable":True},
-  {"id":2, "nombre":"Jess", "enable":False},
-  {"id":3, "nombre":"Liz", "enable":True},
-  {{"id":2, "nombre":"Tom", "enable":False},
+    {"id": 1, "nombre": "Omi", "enable": True},
+    {"id": 2, "nombre": "Jess", "enable": False},
+    {"id": 3, "nombre": "Liz", "enable": True},
+    {"id": 4, "nombre": "Tom", "enable": False}  # Corregido el error de sintaxis
 ]
 
 @app.route('/tasks', methods=['GET'])
-def get taks():
+def get_tasks():  # Corregido el nombre de la función
     return jsonify(tasks)
 
-if _name_ == '_main_':
+if __name__ == '__main__':  # Corregido la comparación de __name__
     app.run(debug=True)
+
 
 
 
